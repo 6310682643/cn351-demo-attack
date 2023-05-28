@@ -1,5 +1,5 @@
 # cn351-demo-attack
-
+# G09
 ## SQLI
 1. นำ folder SQLI ไปใส่ไว้ใน xampp -> htdocs
 2. check ว่ารัน XAMPP control panel ว่าได้ start ทั้ง apache & MySQL
