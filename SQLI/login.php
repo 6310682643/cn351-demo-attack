@@ -1,31 +1,41 @@
-<!-- <?php
-    // $link = new mysqli("localhost", "root", "", "test_db");
-    // if ($link -> connect_errno) {
-    //     echo "Failed to connect to MySQL: " . $link -> connect_error;
-    //     exit();
-    // }
-
-    // if (isset($_GET['login'])) {
-    //     $password = $_GET['password'];
-    //     $username = $_GET['username'];
-
-    //     $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    //     // $sql = "SELECT * FROM users WHERE username='".$username ."' AND password='".$password."';";
-    //     $result = mysqli_query($link, $sql);
-
-    //     if (mysqli_num_rows($result) == 1) {
-    //         header("Location: home.php");
-    //     } else {
-    //         print_r($sql +" "+$result);
-    //         // header("Location: index.php");
-    //     }
-    // }
-?> -->
 
 <?php
 session_start();
 include "db_model.php";
-
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        * {
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        table {margin: 0 auto;}
+        h1 { text-align: center; color: #5f667c}
+        body { background-color: #EAF2FF; }
+        button {
+            background: #555;
+            padding: 10px 15px;
+            color: #fff;
+            border-radius: 5px;
+            margin-right: 10px;
+            border: none;}
+        button:hover {
+            opacity: .7;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<?php
 if (isset($_POST['login'])) {
     // function validation($data) {
     //     $data = trim($data);
@@ -50,8 +60,6 @@ if (isset($_POST['login'])) {
         // $result = mysqli_multi_query($link, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-            // header("Location: home.php");
-            echo "<h1><center>Login success</center></h1>";
             // echo "Query is: ".$sql;
             // $row = mysqli_fetch_assoc($result);
             // if ($row['username'] == $username) {
@@ -64,18 +72,22 @@ if (isset($_POST['login'])) {
             //     header("Location: index.php?error=Incorrect Username or Password");
             //     exit();
             // }
+            
+            echo "<h1>Login success!!</h1>";
             echo "<table>
-            <tr bgcolor='#ccc'>
-            <th>Username</th>
-            <th>Password</th>
-            </tr>";
+                <tr bgcolor='#ccc'>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<center><tr align=left style='font-size:20px;'>";
                 echo "<td align=center>" . $row['username'] . "</td>";
                 echo "<td align=left>" . $row['password'] . "</td>";
                 echo "</tr></center>";
             }
-            
+            echo "</table>";
+            echo "<br>";
+            echo "<center><button onclick=\"window.location.href='index.php'\">Back </button></center>";
         } else {
             // echo "<h1><center>Login failed</center></h1>";
             // print_r($sql);
