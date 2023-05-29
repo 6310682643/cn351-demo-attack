@@ -52,7 +52,7 @@ if (isset($_POST['login'])) {
         if (mysqli_num_rows($result) > 0) {
             // header("Location: home.php");
             echo "<h1><center>Login success</center></h1>";
-            echo "Query is: ".$sql;
+            // echo "Query is: ".$sql;
             // $row = mysqli_fetch_assoc($result);
             // if ($row['username'] == $username) {
             //     $_SESSION['username'] = $row['username'];
@@ -70,17 +70,17 @@ if (isset($_POST['login'])) {
             <th>Password</th>
             </tr>";
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr align=left style='font-size:18px;'>";
+                echo "<center><tr align=left style='font-size:20px;'>";
                 echo "<td align=center>" . $row['username'] . "</td>";
                 echo "<td align=left>" . $row['password'] . "</td>";
-                echo "</tr>";
+                echo "</tr></center>";
             }
             
         } else {
-            echo "<h1><center>Login failed</center></h1>";
-            print_r($sql);
-            // header("Location: index.php?error=Incorrect Username or Password");
-            // exit();
+            // echo "<h1><center>Login failed</center></h1>";
+            // print_r($sql);
+            header("Location: index.php?error=Incorrect Username or Password");
+            exit();
         }
     }
 
