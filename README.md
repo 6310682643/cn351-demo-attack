@@ -11,3 +11,8 @@
 2. check ว่ารัน XAMPP control panel ว่าได้ start ทั้ง apache & MySQL
 3. จากนั้นกด admin ของ MySQL เข้า phpMyAdmin เพื่อสร้าง database xss_db ตั้งชื่อตารางว่า data โดยมีข้อมูลด้านในเป็น id, title, content
 4. รัน [http://localhost/xss/](http://localhost/xss/) 
+
+## CSRF
+1. นำ folder ฉฆฑโ ไปใส่ไว้ใน xampp -> htdocs
+2. check ว่ารัน XAMPP control panel ว่าได้ start ทั้ง apache & MySQL
+3. เข้า http://localhost/csrf/web/shirtshop.php เพื่อเข้าสู่หน้าเว็บ
